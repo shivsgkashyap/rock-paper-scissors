@@ -4,8 +4,8 @@ export default function Main() {
   return (
     <main class="main">
       <div class="scoreboard">
-        <h2 class="score-info">Choose your weapon</h2>
-        <h3 class="score-message">First to score 5 points wins the game</h3>
+        <h2 class="score-info">Choose your weapon:</h2>
+        <h3 class="score-message">First to 5 points takes the crown</h3>
         <div class="scores-container">
           <div class="score-box">
             <div class="sign">❔</div>

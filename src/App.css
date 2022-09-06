@@ -12,6 +12,83 @@ header img {
   padding: 0.5em;
 }
 
+.main {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.scoreboard {
+  margin-bottom: 15px;
+}
+
+.score-info {
+  font-size: 32px;
+}
+
+.score-message {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.scores-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.score-box {
+  width: 170px;
+}
+
+.score {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.rock-button,
+.paper-button,
+.scissors-button {
+  border-radius: 10px;
+  background-color: #393e46;
+  width: 160px;
+  height: 160px;
+  transition: transform 0.2s ease-in;
+}
+
+.rock-button:hover,
+.paper-button:hover,
+.scissors-button:hover {
+  background-color: #4a4f57;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px 1px;
+}
+
+.sign {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
 footer {
   display: flex;
   background-color: black;
@@ -20,6 +97,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+  padding: 0.5em;
 }
 
 footer p {
@@ -32,6 +110,11 @@ footer a {
 }
 
 footer img {
-  height: 2em;
-  width: 2em;
+  height: 1.5em;
+  width: 1.5em;
+  transition: transform 0.3s ease-in-out;
+}
+
+footer img:hover {
+  transform: rotate(360deg) scale(1.2);
 }
