@@ -5,6 +5,10 @@ export default function Main() {
   const [computerCounter, setComputerCounter] = useState(0);
   const [userSelection, setUserSelection] = useState("");
   const [computerSelection, setComputerSelection] = useState("");
+  const [scoreInfo, setScoreInfo] = useState("Choose your weapon:");
+  const [scoreMessage, setScoreMessage] = useState(
+    "First to 5 points takes the crown"
+  );
 
   const getUserSelection = (event) => {
     setUserSelection(event.currentTarget.id);
@@ -20,42 +24,47 @@ export default function Main() {
   };
 
   const playRound = () => {
-    let result = "";
     if (userSelection === computerSelection) {
-      result = "Draw!";
+      setScoreInfo("Draw!!");
+      setScoreMessage("It's A Tie!");
     }
     if (userSelection === "rock" && computerSelection === "scissors") {
-      result = "You Win! Rock beats Scissors";
+      setScoreInfo("You Win!!");
+      setScoreMessage("Rock beats Scissors!");
       setPlayerCounter(playerCounter + 1);
     }
     if (userSelection === "rock" && computerSelection === "paper") {
-      result = "You Lose! Paper beats Rock";
+      setScoreInfo("You Lose!!");
+      setScoreMessage("Paper beats Rock!");
       setComputerCounter(computerCounter + 1);
     }
     if (userSelection === "paper" && computerSelection === "rock") {
-      result = "You Win! Paper beats Rock";
+      setScoreInfo("You Win!!");
+      setScoreMessage("Paper beats Rock!");
       setPlayerCounter(playerCounter + 1);
     }
     if (userSelection === "paper" && computerSelection === "scissors") {
-      result = "You Lose! Scissors beats Paper";
+      setScoreInfo("You Lose!!");
+      setScoreMessage("Scissors beats Paper!");
       setComputerCounter(computerCounter + 1);
     }
     if (userSelection === "scissors" && computerSelection === "rock") {
-      result = "You Lose! Rock beats Scissors";
+      setScoreInfo("You Lose!!");
+      setScoreMessage("Rock beats Scissors!");
       setComputerCounter(computerCounter + 1);
     }
     if (userSelection === "scissors" && computerSelection === "paper") {
-      result = "You Win! Scissors beats Paper";
+      setScoreInfo("You Win!!");
+      setScoreMessage("Scissors beats Paper!");
       setPlayerCounter(playerCounter + 1);
     }
-    return result;
   };
 
   return (
     <main className="main">
       <div className="scoreboard">
-        <h2 className="score-info">Choose your weapon:</h2>
-        <h3 className="score-message">First to 5 points takes the crown</h3>
+        <h2 className="score-info">{scoreInfo}</h2>
+        <h3 className="score-message">{scoreMessage}</h3>
         <div className="scores-container">
           <div className="score-box">
             <div className="sign">❔</div>
