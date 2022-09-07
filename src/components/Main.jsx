@@ -11,11 +11,12 @@ export default function Main() {
   );
   const [playerImage, setPlayerImage] = useState("?");
   const [computerImage, setComputerImage] = useState("?");
+  const [gameOver, setGameOver] = useState(false);
 
   const getUserSelection = (event) => {
+    playRound();
     setUserSelection(event.currentTarget.id);
     setComputerSelection(getComputerChoice);
-    playRound();
   };
 
   const getComputerChoice = () => {
@@ -75,6 +76,14 @@ export default function Main() {
       setComputerImage("✌");
     }
   };
+
+  useEffect(() => {
+    if (playerCounter === 5 || computerCounter === 5) {
+      setGameOver(true);
+    }
+  }, [playerCounter, computerCounter]);
+
+  console.log(gameOver);
 
   return (
     <main className="main">
