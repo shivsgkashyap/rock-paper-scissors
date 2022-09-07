@@ -4,38 +4,52 @@ export default function Main() {
   const [playerCounter, setPlayerCounter] = useState(0);
   const [computerCounter, setComputerCounter] = useState(0);
   const [userSelection, setUserSelection] = useState("");
-  let computerSelection = "";
+  const [computerSelection, setComputerSelection] = useState("");
 
   const getUserSelection = (event) => {
     setUserSelection(event.currentTarget.id);
+    setComputerSelection(getComputerChoice);
+    playRound();
   };
 
-  useEffect(() => {
+  const getComputerChoice = () => {
     let compChoices = ["rock", "paper", "scissors"];
     let randomizeChoice = Math.floor(Math.random() * compChoices.length);
 
-    computerSelection = compChoices[randomizeChoice];
-  }, [userSelection]);
+    return compChoices[randomizeChoice];
+  };
 
-  //   const playRound(playerSelection, computerSelection) {
-  //   let result = ""
-  //   if (playerSelection === computerSelection) {
-  //     result = "Draw!";
-  //   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-  //     result = "You Win! Rock beats Scissors";
-  //   } else if (playerSelection === "rock" && computerSelection === "paper") {
-  //     result = "You Lose! Paper beats Rock";
-  //   } else if (playerSelection === "paper" && computerSelection === "rock") {
-  //     result = "You Win! Paper beats Rock";
-  //   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-  //     result = "You Lose! Scissors beats Paper";
-  //   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-  //     result = "You Lose! Rock beats Scissors";
-  //   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-  //     result = "You Win! Scissors beats Paper";
-  //   }
-  //   return result;
-  // }
+  const playRound = () => {
+    let result = "";
+    if (userSelection === computerSelection) {
+      result = "Draw!";
+    }
+    if (userSelection === "rock" && computerSelection === "scissors") {
+      result = "You Win! Rock beats Scissors";
+      setPlayerCounter(playerCounter + 1);
+    }
+    if (userSelection === "rock" && computerSelection === "paper") {
+      result = "You Lose! Paper beats Rock";
+      setComputerCounter(computerCounter + 1);
+    }
+    if (userSelection === "paper" && computerSelection === "rock") {
+      result = "You Win! Paper beats Rock";
+      setPlayerCounter(playerCounter + 1);
+    }
+    if (userSelection === "paper" && computerSelection === "scissors") {
+      result = "You Lose! Scissors beats Paper";
+      setComputerCounter(computerCounter + 1);
+    }
+    if (userSelection === "scissors" && computerSelection === "rock") {
+      result = "You Lose! Rock beats Scissors";
+      setComputerCounter(computerCounter + 1);
+    }
+    if (userSelection === "scissors" && computerSelection === "paper") {
+      result = "You Win! Scissors beats Paper";
+      setPlayerCounter(playerCounter + 1);
+    }
+    return result;
+  };
 
   return (
     <main className="main">
