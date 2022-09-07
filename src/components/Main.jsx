@@ -9,6 +9,8 @@ export default function Main() {
   const [scoreMessage, setScoreMessage] = useState(
     "First to 5 points takes the crown"
   );
+  const [playerImage, setPlayerImage] = useState("?");
+  const [computerImage, setComputerImage] = useState("?");
 
   const getUserSelection = (event) => {
     setUserSelection(event.currentTarget.id);
@@ -27,36 +29,50 @@ export default function Main() {
     if (userSelection === computerSelection) {
       setScoreInfo("Draw!!");
       setScoreMessage("It's A Tie!");
+      setPlayerImage("👔");
+      setComputerImage("👔");
     }
     if (userSelection === "rock" && computerSelection === "scissors") {
       setScoreInfo("You Win!!");
       setScoreMessage("Rock beats Scissors!");
       setPlayerCounter(playerCounter + 1);
+      setPlayerImage("✊");
+      setComputerImage("✋");
     }
     if (userSelection === "rock" && computerSelection === "paper") {
       setScoreInfo("You Lose!!");
       setScoreMessage("Paper beats Rock!");
       setComputerCounter(computerCounter + 1);
+      setPlayerImage("✋");
+      setComputerImage("✊");
     }
     if (userSelection === "paper" && computerSelection === "rock") {
       setScoreInfo("You Win!!");
       setScoreMessage("Paper beats Rock!");
       setPlayerCounter(playerCounter + 1);
+      setPlayerImage("✋");
+      setComputerImage("✊");
     }
     if (userSelection === "paper" && computerSelection === "scissors") {
       setScoreInfo("You Lose!!");
       setScoreMessage("Scissors beats Paper!");
       setComputerCounter(computerCounter + 1);
+      setPlayerImage("✌");
+      setComputerImage("✋");
     }
     if (userSelection === "scissors" && computerSelection === "rock") {
       setScoreInfo("You Lose!!");
       setScoreMessage("Rock beats Scissors!");
       setComputerCounter(computerCounter + 1);
+      setPlayerImage("✊");
+      setComputerImage("✌");
     }
     if (userSelection === "scissors" && computerSelection === "paper") {
       setScoreInfo("You Win!!");
       setScoreMessage("Scissors beats Paper!");
       setPlayerCounter(playerCounter + 1);
+      setPlayerImage("✋");
+      setComputerImage("✌");
     }
   };
 
@@ -67,11 +83,11 @@ export default function Main() {
         <h3 className="score-message">{scoreMessage}</h3>
         <div className="scores-container">
           <div className="score-box">
-            <div className="sign">❔</div>
+            <div className="sign">{playerImage}</div>
             <p className="score">Player: {playerCounter}</p>
           </div>
           <div className="score-box">
-            <div className="sign">❔</div>
+            <div className="sign">{computerImage}</div>
             <p className="score">Computer: {computerCounter}</p>
           </div>
         </div>
