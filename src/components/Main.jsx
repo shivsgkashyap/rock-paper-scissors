@@ -116,6 +116,23 @@ export default function Main() {
           <div className="sign">✌</div>
         </button>
       </div>
+      <div
+        class="modal"
+        id="endgameModal"
+        style={{ display: gameOver ? "block" : "none" }}
+      >
+        <p class="modal-title" id="endgameMsg">
+          {playerCounter > computerCounter ? "You won!" : "You lost..."}
+        </p>
+        <button class="btn btn-restart" id="restartBtn">
+          Play again
+        </button>
+      </div>
+      <div
+        class="overlay"
+        id="overlay"
+        style={{ display: gameOver ? "block" : "none" }}
+      ></div>
     </main>
   );
 }
