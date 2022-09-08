@@ -83,7 +83,15 @@ export default function Main() {
     }
   }, [playerCounter, computerCounter]);
 
-  console.log(gameOver);
+  const restartGame = () => {
+    setPlayerCounter(0);
+    setComputerCounter(0);
+    setScoreInfo("Choose your weapon");
+    setScoreMessage("First to 5 points takes the crown");
+    setPlayerImage("?");
+    setComputerImage("?");
+    setGameOver(false);
+  };
 
   return (
     <main className="main">
@@ -124,7 +132,7 @@ export default function Main() {
         <p class="modal-title" id="endgameMsg">
           {playerCounter > computerCounter ? "You won!" : "You lost..."}
         </p>
-        <button class="btn btn-restart" id="restartBtn">
+        <button class="btn btn-restart" id="restartBtn" onClick={restartGame}>
           Play again
         </button>
       </div>
