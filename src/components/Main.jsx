@@ -14,9 +14,9 @@ export default function Main() {
   const [gameOver, setGameOver] = useState(false);
 
   const getUserSelection = (event) => {
-    playRound();
     setUserSelection(event.currentTarget.id);
     setComputerSelection(getComputerChoice);
+    playRound();
   };
 
   const getComputerChoice = () => {
@@ -25,6 +25,12 @@ export default function Main() {
 
     return compChoices[randomizeChoice];
   };
+
+  useEffect(() => {
+    if (userSelection) {
+      playRound();
+    }
+  }, [userSelection]);
 
   const playRound = () => {
     if (userSelection === computerSelection) {
@@ -38,14 +44,14 @@ export default function Main() {
       setScoreMessage("Rock beats Scissors!");
       setPlayerCounter(playerCounter + 1);
       setPlayerImage("✊");
-      setComputerImage("✋");
+      setComputerImage("✌");
     }
     if (userSelection === "rock" && computerSelection === "paper") {
       setScoreInfo("You Lose!!");
       setScoreMessage("Paper beats Rock!");
       setComputerCounter(computerCounter + 1);
-      setPlayerImage("✋");
-      setComputerImage("✊");
+      setPlayerImage("✊");
+      setComputerImage("✋");
     }
     if (userSelection === "paper" && computerSelection === "rock") {
       setScoreInfo("You Win!!");
@@ -58,22 +64,22 @@ export default function Main() {
       setScoreInfo("You Lose!!");
       setScoreMessage("Scissors beats Paper!");
       setComputerCounter(computerCounter + 1);
-      setPlayerImage("✌");
-      setComputerImage("✋");
+      setPlayerImage("✋");
+      setComputerImage("✌");
     }
     if (userSelection === "scissors" && computerSelection === "rock") {
       setScoreInfo("You Lose!!");
       setScoreMessage("Rock beats Scissors!");
       setComputerCounter(computerCounter + 1);
-      setPlayerImage("✊");
-      setComputerImage("✌");
+      setPlayerImage("✌");
+      setComputerImage("✊");
     }
     if (userSelection === "scissors" && computerSelection === "paper") {
       setScoreInfo("You Win!!");
       setScoreMessage("Scissors beats Paper!");
       setPlayerCounter(playerCounter + 1);
-      setPlayerImage("✋");
-      setComputerImage("✌");
+      setPlayerImage("✌");
+      setComputerImage("✋");
     }
   };
 
