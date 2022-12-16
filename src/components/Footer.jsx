@@ -5,7 +5,7 @@ export default function Footer() {
     <footer class="footer">
       <p>Copyright © {new Date().getFullYear()} Shiv Kashyap</p>
       <a href="https://github.com/shivsgkashyap" target="_blank">
-        <img src="/src/images/github.png" alt="Github Logo" />
+        <img src="src/images/github.png" alt="Github Logo" />
       </a>
     </footer>
   );
