@@ -116,14 +116,22 @@ export default function Main() {
         </div>
       </div>
       <div className="buttons">
-        <button className="rock-button" id="rock" onClick={getUserSelection}>
+        <button
+          className="rock-button btn-square"
+          id="rock"
+          onClick={getUserSelection}
+        >
           <div className="sign">✊</div>
         </button>
-        <button className="paper-button" id="paper" onClick={getUserSelection}>
+        <button
+          className="paper-button btn-square"
+          id="paper"
+          onClick={getUserSelection}
+        >
           <div className="sign">✋</div>
         </button>
         <button
-          className="scissors-button"
+          className="scissors-button btn-square"
           id="scissors"
           onClick={getUserSelection}
         >
