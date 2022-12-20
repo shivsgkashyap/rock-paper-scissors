@@ -26,12 +26,6 @@ export default function Main() {
     return compChoices[randomizeChoice];
   };
 
-  useEffect(() => {
-    if (userSelection) {
-      playRound();
-    }
-  }, [userSelection]);
-
   const playRound = () => {
     if (userSelection === computerSelection) {
       setScoreInfo("Draw!!");
@@ -101,7 +95,7 @@ export default function Main() {
 
   return (
     <main className="main">
-      <div className="scoreboard">
+      <section className="scoreboard">
         <h2 className="score-info">{scoreInfo}</h2>
         <h3 className="score-message">{scoreMessage}</h3>
         <div className="scores-container">
@@ -114,8 +108,8 @@ export default function Main() {
             <p className="score">Computer: {computerCounter}</p>
           </div>
         </div>
-      </div>
-      <div className="buttons">
+      </section>
+      <section className="buttons">
         <button
           className="rock-button btn-square"
           id="rock"
@@ -137,7 +131,7 @@ export default function Main() {
         >
           <div className="sign">✌</div>
         </button>
-      </div>
+      </section>
       <div
         class="modal"
         id="endgameModal"
